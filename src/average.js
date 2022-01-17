@@ -12,8 +12,19 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // Alteração commit;
+const average = (array) => { 
+  let sumArray = 0;
+  if (array.length === 0) {
+    return undefined;
+  }
+  for (let i = 0; i < array.length; i += 1) {
+    if (typeof array[i] !== 'number') {
+      return undefined;
+    } 
+    sumArray += array[i];
+  }
+  let averageArray = sumArray / array.length;
+  return Math.round(averageArray);
 };
 
 module.exports = average;
