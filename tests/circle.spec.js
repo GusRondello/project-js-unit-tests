@@ -32,6 +32,7 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // Teste se circle retorna um objeto.
     expect(typeof circle(4)).toBe('object');
     // Teste se o objeto retornado tem 3 propriedades.;
+    // Visto que função Object.keys() pode ser usada no jest: https://github.com/facebook/jest/issues/2143
     expect(Object.keys(circle(3))).toHaveLength(3);
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
     expect(circle()).toBeUndefined();
