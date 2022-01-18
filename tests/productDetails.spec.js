@@ -34,32 +34,28 @@ const Id = '123';
 const difObj = () => {
   const object1 = productDetails(alchool, mask)[0];
   const object2 = productDetails(alchool, mask)[1];
-  if (object1 !== object2) {
+  if (object1 !== object2){
     return true;
   }
   return false;
 }
 
-describe('6 - Verifica se a função `productDetails` tem o comportamento esperado', () => {
+describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
+  it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
     // fail('Teste vazio!');
     // ESCREVA SEUS TESTES ABAIXO:
-  it('Teste se productDetails é uma função.', () => {
+    // Teste se productDetails é uma função.
     expect(typeof productDetails).toBe('function');
-  });
-  it('Teste se o retorno da função é um array.', () => {
-    // Tive ajuda da Ana na mentoria e do Leo Araujo para entender a questão do array retornar como object
+    // Teste se o retorno da função é um array.
+    /*Tive ajuda da Ana na mentoria e do Leo Araujo para entender a questão do array retornar como object*/ 
     expect(Array.isArray(productDetails())).toBeTruthy();
-  });
-  it('Teste se o array retornado pela função contém dois itens dentro.', () => {
+    // Teste se o array retornado pela função contém dois itens dentro.
     expect(productDetails().length).toBe(2);
-  });
-  it('Teste se os dois itens dentro do array retornado pela função são objetos.', () => {
+    // Teste se os dois itens dentro do array retornado pela função são objetos.
     expect(typeof productDetails()).toBe('object');
-  });
-  it('Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.', () => {
+    // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
     expect(difObj()).toBeTruthy();
-  });
-  it('Teste se os dois productIds terminam com 123.', () => {
+    // Teste se os dois productIds terminam com 123.
     expect(object1Id && object2Id).toContain(Id);
   });
 });

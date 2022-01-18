@@ -23,30 +23,25 @@ const circle = require('../src/circle');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 // Documentação do Jest usada aqui foi localizada no https://jestjs.io/pt-BR/docs/getting-started
-describe('4 - Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
+describe('4 - Implemente os casos de teste para a função `circle`', () => {
+  it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
     // fail('Teste vazio!');
     // ESCREVA SEUS TESTES ABAIXO:
-  it('Teste se circle retorna undefined, caso o parâmetro passado não seja um número.', () => {
+    // Teste se circle retorna undefined, caso o parâmetro passado não seja um número.
     expect(circle('4')).toBeUndefined();
-  });
-  it('Teste se circle retorna um objeto.', () => {
+    // Teste se circle retorna um objeto.
     expect(typeof circle(4)).toBe('object');
-  });
-  it('Teste se o objeto retornado tem 3 propriedades.', () => {
+    // Teste se o objeto retornado tem 3 propriedades.;
     // Visto que função Object.keys() pode ser usada no jest: https://github.com/facebook/jest/issues/2143
     expect(Object.keys(circle(3))).toHaveLength(3);
-  })
-  it('Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.', () => {
+    // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
     expect(circle()).toBeUndefined();
-  });
-  it('Teste se dentro do objeto retornado, a função retorna uma key com value igual a circunferência correta para um círculo de raio 2.', () => {
+    // Teste se dentro do objeto retornado, a função retorna uma key com value igual a circunferência correta para um círculo de raio 2.
     // Verificado método expect.objectContaining() https://jestjs.io/pt-BR/docs/expect#expectobjectcontainingobject
     expect(circle(2)).toEqual(expect.objectContaining({circumference: 2 * 3.14 *2}));
-  })
-  it('Teste se dentro do objeto retornado, a função retorna uma key com value igual a área correta para um círculo de raio 3.', () => {
+    // Teste se dentro do objeto retornado, a função retorna uma key com value igual a área correta para um círculo de raio 3.
     expect(circle(3)).toEqual(expect.objectContaining({area: 3.14 * 3 * 3}));
-  });
-  it('Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.', () => {
+    // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
     expect(circle(3)).toStrictEqual({radius: 3, area: 3.14 * 3 * 3, circumference: 2 * 3.14 * 3});
   });
 });
