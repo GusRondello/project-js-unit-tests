@@ -28,18 +28,17 @@ const productDetails = require('../src/productDetails');
 
 const alchool = 'Alcool gel';
 const mask = 'Máscara';
-const object = {
-  name: 'Alcool gel',
-  details: {
-    productId: 'Alcool gel123'
+const object1Id = productDetails(alchool, mask)[0].details.productId;
+const object2Id = productDetails(alchool, mask)[1].details.productId;
+const Id = '123';
+const difObj = () => {
+  const object1 = productDetails(alchool, mask)[0];
+  const object2 = productDetails(alchool, mask)[1];
+  if (object1 !== object2) {
+    return true;
   }
+  return false;
 }
-const testObjs = () => {
-  if(typeof productDetails() === 'object'){
-    return true
-  }
-   return false
-} 
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
@@ -48,13 +47,15 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste se productDetails é uma função.
     expect(typeof productDetails).toBe('function');
     // Teste se o retorno da função é um array.
-    expect(typeof productDetails()).toBe('object');
+    /*Tive ajuda da Ana na mentoria e do Leo Araujo para entender a questão do array retornar como object*/
+    expect(Array.isArray(productDetails())).toBeTruthy();
     // Teste se o array retornado pela função contém dois itens dentro.
     expect(productDetails().length).toBe(2);
     // Teste se os dois itens dentro do array retornado pela função são objetos.
-    expect(testObjs()).toBeTruthy();
+    expect(typeof productDetails()).toBe('object');
     // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
-    expect(productDetails(alchool, mask)).not.toEqual([object, object]);
+    expect(difObj()).toBeTruthy();
     // Teste se os dois productIds terminam com 123.
+    expect(object1Id && object2Id).toContain(Id);
   });
 });
