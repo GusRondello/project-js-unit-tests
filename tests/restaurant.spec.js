@@ -45,25 +45,32 @@ const createMenu = require('../src/restaurant');
 */
 
 describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
-  it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    // fail('Teste vazio!');
-    // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui a
-    // chave fetchMenu, a qual tem como valor uma função.
+  //Verifica se a função `createMenu` tem o comportamento esperado
+  // fail('Teste vazio!');
+  it('TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui a chave fetchMenu, a qual tem como valor uma função.', () => {
+    const objetoRetornado = createMenu(); 
+    expect(typeof objetoRetornado).toBe('object');
+    expect (typeof objetoRetornado.fetchMenu).toBe('function');
+    // Retorno: { fetchMenu: () => {}, ... }
     // ```
-    // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
-    // ```
-    // TESTE 2: Verifique se 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`, 
+  });
+  it('TESTE 2: Verifique se `objetoRetornado.fetchMenu()` retorna um objeto cujas chaves são somente `food` e `drink`', () => {
     // considerando que a função createMenu() foi chamada com o objeto: `{ food: {}, drink: {} }`.
     // ```
-    // const objetoRetornado = createMenu({ food: {}, drink: {} });
+    const objetoRetornado = createMenu({ food: {}, drink: {} });
+    createMenu({ food: {}, drink: {} })
+    expect(objetoRetornado.fetchMenu()).toBe({ food: {}, drink: {}})
     // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
     // ```
-    // TESTE 3: Verifique se o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
-    // ```
-    // const objetoRetornado = createMenu(objetoQualquer);
+  });
+  it('TESTE 3: Verifique se o menu passado pra função createMenu é identico ao menu recuperado pela função `objetoRetornado.fetchMenu`', () => {
+    const objetoRetornado = createMenu(objetoQualquer);
+    expect(objetoRetornado.fetchMenu()).toBe(objetoQualquer);
     // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
+  });
+
     // --------------------------------------------------------------------------------------
     // TESTE 4: Verifique se 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
     // ```
@@ -109,5 +116,4 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
-  });
 });
