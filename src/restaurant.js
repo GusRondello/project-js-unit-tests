@@ -45,17 +45,16 @@
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
 */
 
-const createMenu = (object) => {
+const createMenu = (myMenu) => {
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 //------------------------------------------------------------------------------------------
-  let menu = {
-    
+  const menu = {
     cosumption: [], 
     /* PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
     Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
     ----------------------------------------------------------------------------------------- */
-    fetchMenu: () => object,
+    fetchMenu: () => myMenu,
   };
   return menu;
 };
@@ -74,7 +73,9 @@ const createMenu = (object) => {
 // // Essa função deve ser associada à chave `order` de `restaurant`
 // ```
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
-
+const order = (pedido) => {
+  createMenu().menu.order = [pedido];
+};
 //------------------------------------------------------------------------------------------
 
 // PASSO 4: adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função
