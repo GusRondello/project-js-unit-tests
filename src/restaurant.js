@@ -44,24 +44,33 @@
 
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
 */
+// const menuQualquer = { food: { sopa: 1.00, coxinha: 2.50, sashimi: 4.00 }, drink: { agua: 3.50, cafe: 1.50 } };
+
 const createMenu = (myMenu) => {
   const menu = {
     consumption: [], 
     fetchMenu: () => myMenu,
-    order: (order) => menu.consumption.push(order),
+    order: (pedido) => menu.consumption.push(pedido),
     pay: () => {
-      let conta = 0;
-      menu.consumption.forEach((item) => {
-        if (menu.consumption[item] === myMenu.food[item] || menu.consumption[item] === myMenu.drink[item]) {
-        conta += Object.values(menu.food)[item];
-        conta += Object.values(menu.drink)[item];
-      }
-      });
-      return conta;
+        let conta = 0;
+        menu.consumption.forEach((item) => {
+          if (myMenu.food[item]) {
+            conta += myMenu.food[item];
+          } if (myMenu.drink[item]) {
+            conta += myMenu.drink[item];
+          }
+        });
+        return (conta * 1.1).toFixed(2);
     }, 
   };
   return menu;
 };
+
+/* const objetoRetornado = createMenu(menuQualquer);
+objetoRetornado.order('coxinha');
+objetoRetornado.order('agua');
+objetoRetornado.order('coxinha');  
+ */
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 //------------------------------------------------------------------------------------------
@@ -87,12 +96,5 @@ const createMenu = (myMenu) => {
 // PASSO 4: adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função
 // que percorre por todos os itens de `objetoRetornado.consumption`, soma o preço deles e retorna o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
-/* const menuQualquer = { food: { sopa: 1.00, coxinha: 2.50, sashimi: 4.00 }, drink: { agua: 3.50, cafe: 1.50 } };
-const objetoRetornado = createMenu(menuQualquer);
-objetoRetornado.order('coxinha');
-objetoRetornado.order('agua');
-objetoRetornado.order('coxinha');
-
-console.log(Object.values(menuQualquer.food)); */
 
 module.exports = createMenu;

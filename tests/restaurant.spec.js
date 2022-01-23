@@ -108,7 +108,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     objetoRetornado.order('agua');
     objetoRetornado.order('coxinha');
     const somaDosPrecosPedidos = 8.50 * 1.1;
-    expect(objetoRetornado.pay()).toEqual(somaDosPrecosPedidos)  // Retorno: somaDosPreçosDosPedidos
+    expect(objetoRetornado.pay()).toStrictEqual(somaDosPrecosPedidos.toFixed(2))  // Retorno: somaDosPreçosDosPedidos
   // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
