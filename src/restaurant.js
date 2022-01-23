@@ -52,7 +52,7 @@ const createMenu = (myMenu) => {
     pay: () => {
       let conta = 0;
       menu.consumption.forEach((item) => {
-        if (menu.consumption[item] === myMenu.food[item] || myMenu.drink[item]) {
+        if (menu.consumption[item] === myMenu.food[item] || menu.consumption[item] === myMenu.drink[item]) {
         conta += Object.values(menu.food)[item];
         conta += Object.values(menu.drink)[item];
       }
